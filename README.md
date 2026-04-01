@@ -198,14 +198,13 @@ See the chart at the top of this README.
 
 A lightweight web layer is available for interactive exploration of the Python porting runtime.
 
-<video src="docs/demo_agents_github.mp4" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/8086ab18-d12a-47c7-a6ef-7f11dd6c2db5" controls width="100%"></video>
 
 If your renderer does not show inline video, open it directly: [demo_agents_github.mp4](docs/demo_agents_github.mp4)
 
 Agentic application demo:
 - Use the **Agentic Demo** panel in the web UI to run multiple worker prompts in parallel.
 - Backend endpoint: `POST /api/agentic-demo`.
-- Demo video URL: `https://github.com/user-attachments/assets/19e2553d-d286-4a8a-bac6-d620fc1911f9`
 
 Run:
 
