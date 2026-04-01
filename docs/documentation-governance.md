@@ -37,6 +37,7 @@ When any of the following changes, update docs in the same PR:
 - [ ] Error behavior is described.
 - [ ] Cross-links to related docs are present.
 - [ ] Dates are present on top-level docs.
+- [ ] Media use follows `docs/media-policy.md`.
 
 ## Anti-Tech-Debt Requirements
 

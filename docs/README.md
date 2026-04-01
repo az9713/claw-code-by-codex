@@ -20,6 +20,7 @@ This documentation set is designed for two goals:
 - [Web App and UI](./web-app.md)
 - [Agentic Demo](./agentic-demo.md)
 - [Agentic Handbook](./agentic/README.md)
+- [Media Policy](./media-policy.md)
 - [Testing and Quality](./testing-and-quality.md)
 
 ## Operations and Contribution
