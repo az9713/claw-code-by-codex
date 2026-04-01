@@ -198,6 +198,10 @@ See the chart at the top of this README.
 
 A lightweight web layer is available for interactive exploration of the Python porting runtime.
 
+![Claw Port Studio frontend](docs/frontend.jpg)
+
+The screenshot above was created from the live local app after launching `src.web_app:app` with Uvicorn and rendering the static frontend in `web/` against the FastAPI endpoints (`/api/summary`, `/api/manifest`, `/api/commands`, `/api/tools`, `/api/route`).
+
 Run:
 
 ```bash
@@ -212,6 +216,8 @@ Then open:
 Implementation details and architecture rationale:
 
 - `WEB_APP_IMPLEMENTATION.md`
+- `docs/web-app.md`
+- `docs/api-reference.md`
 
 ## Ownership / Affiliation Disclaimer
 
