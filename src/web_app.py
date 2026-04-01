@@ -4,9 +4,11 @@ from dataclasses import asdict
 from pathlib import Path
 
 from fastapi import FastAPI, Query
+from pydantic import BaseModel, Field
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
+from .agentic_demo import TaskSpec, orchestrate
 from .commands import get_commands
 from .permissions import ToolPermissionContext
 from .port_manifest import build_port_manifest
@@ -26,6 +28,12 @@ app = FastAPI(
 )
 
 app.mount('/static', StaticFiles(directory=STATIC_ROOT), name='static')
+
+
+class AgenticDemoRequest(BaseModel):
+    prompts: list[str] = Field(min_length=2, max_length=5)
+    roles: list[str] | None = Field(default=None)
+    route_limit: int = Field(default=5, ge=1, le=20)
 
 
 def _matches_query(query: str, *values: str) -> bool:
@@ -118,3 +126,22 @@ def route(
         'matches': [asdict(match) for match in matches],
     }
 
+
+@app.post('/api/agentic-demo')
+async def agentic_demo(payload: AgenticDemoRequest) -> dict[str, object]:
+    roles = payload.roles or []
+    tasks = tuple(
+        TaskSpec(
+            agent_id=f'agent-{idx + 1}',
+            role=roles[idx] if idx < len(roles) and roles[idx].strip() else f'worker-{idx + 1}',
+            prompt=prompt,
+        )
+        for idx, prompt in enumerate(payload.prompts)
+    )
+    result = await orchestrate(tasks, route_limit=payload.route_limit)
+    return {
+        'worker_count': result.worker_count,
+        'total_duration_ms': result.total_duration_ms,
+        'workers': [asdict(worker) for worker in result.workers],
+        'orchestrator_summary': result.orchestrator_summary,
+    }

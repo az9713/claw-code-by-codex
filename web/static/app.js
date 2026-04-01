@@ -4,6 +4,7 @@ const summaryOutput = $("#summary-output");
 const commandsList = $("#commands-list");
 const toolsList = $("#tools-list");
 const routeResults = $("#route-results");
+const agenticResults = $("#agentic-results");
 const commandCount = $("#command-count");
 const toolCount = $("#tool-count");
 const pythonFiles = $("#python-files");
@@ -93,6 +94,51 @@ async function routePrompt(event) {
     .join("");
 }
 
+async function runAgenticDemo(event) {
+  event.preventDefault();
+  const prompts = $("#agentic-prompts")
+    .value.split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+  if (prompts.length < 2) {
+    agenticResults.innerHTML = `<div class="result-item">Provide at least two prompts (one per line).</div>`;
+    return;
+  }
+  if (prompts.length > 5) {
+    agenticResults.innerHTML = `<div class="result-item">Use at most five prompts.</div>`;
+    return;
+  }
+  const routeLimit = Number($("#agentic-limit").value || "5");
+  const response = await fetch("/api/agentic-demo", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompts, route_limit: routeLimit }),
+  });
+  if (!response.ok) {
+    agenticResults.innerHTML = `<div class="result-item">Agentic request failed: ${response.status}</div>`;
+    return;
+  }
+  const data = await response.json();
+  const workerCards = data.workers
+    .map(
+      (worker) => `
+      <div class="result-item">
+        <strong>${esc(worker.agent_id)} (${esc(worker.role)})</strong>
+        <p>commands=${esc(worker.matched_commands.length)} tools=${esc(worker.matched_tools.length)} stop=${esc(worker.stop_reason)} duration_ms=${esc(worker.duration_ms)}</p>
+        <pre>${esc(worker.output)}</pre>
+      </div>`
+    )
+    .join("");
+  agenticResults.innerHTML = `
+    <div class="result-item">
+      <strong>Main Orchestrator</strong>
+      <p>workers=${esc(data.worker_count)} total_duration_ms=${esc(data.total_duration_ms)}</p>
+      <pre>${esc(data.orchestrator_summary)}</pre>
+    </div>
+    ${workerCards}
+  `;
+}
+
 async function init() {
   try {
     await Promise.all([loadManifest(), loadSummary(), loadCommands(), loadTools()]);
@@ -104,6 +150,7 @@ async function init() {
 $("#refresh-commands").addEventListener("click", loadCommands);
 $("#refresh-tools").addEventListener("click", loadTools);
 $("#route-form").addEventListener("submit", routePrompt);
+$("#agentic-form").addEventListener("submit", runAgenticDemo);
 $("#command-query").addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -118,4 +165,3 @@ $("#tool-query").addEventListener("keydown", (event) => {
 });
 
 init();
-

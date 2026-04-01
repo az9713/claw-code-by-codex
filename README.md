@@ -202,6 +202,11 @@ A lightweight web layer is available for interactive exploration of the Python p
 
 The screenshot above was created from the live local app after launching `src.web_app:app` with Uvicorn and rendering the static frontend in `web/` against the FastAPI endpoints (`/api/summary`, `/api/manifest`, `/api/commands`, `/api/tools`, `/api/route`).
 
+Agentic application demo:
+- Use the **Agentic Demo** panel in the web UI to run multiple worker prompts in parallel.
+- Backend endpoint: `POST /api/agentic-demo`.
+- Demo video placeholder URL: `https://example.com/TODO-claw-code-by-codex-agentic-demo-video`
+
 Run:
 
 ```bash
@@ -218,6 +223,8 @@ Implementation details and architecture rationale:
 - `WEB_APP_IMPLEMENTATION.md`
 - `docs/web-app.md`
 - `docs/api-reference.md`
+- `docs/agentic-demo.md`
+- `docs/agentic/README.md`
 
 ## Ownership / Affiliation Disclaimer
 

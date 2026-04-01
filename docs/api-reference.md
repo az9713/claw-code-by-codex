@@ -102,6 +102,31 @@ Response shape:
 }
 ```
 
+## POST /api/agentic-demo
+
+Runs multiple worker tasks in parallel and returns an orchestrator summary.
+
+Request body:
+
+```json
+{
+  "prompts": ["review MCP tool", "summarize command graph"],
+  "roles": ["reviewer", "analyst"],
+  "route_limit": 5
+}
+```
+
+Body constraints:
+- `prompts`: list length 2-5
+- `route_limit`: 1-20
+- `roles`: optional list; defaults to `worker-{n}` roles when omitted
+
+Response fields:
+- `worker_count: number`
+- `total_duration_ms: number`
+- `workers: AgentResult[]`
+- `orchestrator_summary: string`
+
 ## Error Behavior
 
 - Validation errors return `422` (FastAPI default).

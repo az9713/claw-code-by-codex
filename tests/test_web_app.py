@@ -53,7 +53,21 @@ class WebAppTests(unittest.TestCase):
         self.assertEqual(payload['prompt'], 'review MCP tool')
         self.assertIn('matches', payload)
 
+    def test_agentic_demo_endpoint(self) -> None:
+        response = self.client.post(
+            '/api/agentic-demo',
+            json={
+                'prompts': ['review MCP tool', 'summarize command graph', 'inspect tool pool'],
+                'route_limit': 5,
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = response.json()
+        self.assertEqual(payload['worker_count'], 3)
+        self.assertIn('workers', payload)
+        self.assertIn('orchestrator_summary', payload)
+        self.assertEqual(len(payload['workers']), 3)
+
 
 if __name__ == '__main__':
     unittest.main()
-

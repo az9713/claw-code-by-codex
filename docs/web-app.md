@@ -66,3 +66,8 @@ python -m uvicorn src.web_app:app --host 127.0.0.1 --port 8000 --reload
 - Add endpoint latency and error banners.
 - Add pagination/virtualization for very large inventories.
 - Add auth if exposed beyond localhost.
+
+## Demo Video
+
+- Local compressed (GitHub-friendly): `docs/demo_agents_github.mp4`
+- Placeholder URL (replace later): `https://example.com/TODO-claw-code-by-codex-agentic-demo-video`

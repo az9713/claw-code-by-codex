@@ -51,6 +51,23 @@
       </section>
 
       <section class="panel">
+        <h2>Agentic Demo</h2>
+        <p>Run multiple workers in parallel and inspect main-agent orchestration output.</p>
+        <form id="agentic-form">
+          <textarea
+            id="agentic-prompts"
+            rows="4"
+            placeholder="One worker prompt per line&#10;review MCP tool&#10;summarize command graph&#10;inspect tool pool"
+          ></textarea>
+          <div class="inline-controls">
+            <label>Route limit <input id="agentic-limit" type="number" min="1" max="20" value="5" /></label>
+            <button type="submit">Run Parallel Agents</button>
+          </div>
+        </form>
+        <div id="agentic-results" class="results"></div>
+      </section>
+
+      <section class="panel">
         <h2>Commands</h2>
         <div class="inline-controls">
           <input id="command-query" type="text" placeholder="Search commands..." />
@@ -76,10 +93,9 @@
 
     <footer>
       <span>Served by FastAPI</span>
-      <span>Endpoints: /api/summary /api/manifest /api/commands /api/tools /api/route</span>
+      <span>Endpoints: /api/summary /api/manifest /api/commands /api/tools /api/route /api/agentic-demo</span>
     </footer>
 
     <script src="/static/app.js" defer></script>
   </body>
 </html>
-

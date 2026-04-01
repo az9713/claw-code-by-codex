@@ -1,103 +1,43 @@
-# Agentic Demo
+# Agentic Demo (Index)
 
 Last updated: 2026-04-01
 
-## Goal
+This page is the short entrypoint. For complete beginner-first documentation, use:
 
-Show a minimal, demoable agentic application using the existing Python runtime surfaces:
-- multiple workers,
-- parallel task execution,
-- main-agent orchestration summary.
+- `docs/agentic/README.md`
 
-## Implementation
+## Quick Summary
 
-Backend:
-- `src/agentic_demo.py`
-  - `TaskSpec`: worker task contract.
-  - `run_parallel_agents(...)`: executes workers concurrently via `asyncio.gather`.
-  - `orchestrate(...)`: aggregates worker outputs and produces a main-agent summary.
+- The feature runs multiple worker prompts in parallel.
+- A main orchestrator aggregates worker outputs.
+- It is a minimal educational implementation, not a full autonomous swarm runtime.
 
-API:
-- `POST /api/agentic-demo` in `src/web_app.py`
-  - input: `prompts` (2-5), optional `roles`, `route_limit`
-  - output: worker results + orchestration summary + timing
+## Demo Video (Placeholder URL)
 
-Frontend:
-- `web/index.html`: new Agentic Demo panel
-- `web/static/app.js`: `runAgenticDemo(...)`
-- `web/static/styles.css`: result rendering styles
+- Placeholder URL (replace after issue-tracked upload):  
+  `https://example.com/TODO-claw-code-by-codex-agentic-demo-video`
 
-## Reuse of Existing Architecture
+Local compressed file prepared for GitHub uploads:
+- `docs/demo_agents_github.mp4`
 
-Each worker reuses existing runtime components:
-- `PortRuntime.route_prompt(...)` for command/tool matching
-- `QueryEnginePort.submit_message(...)` for turn generation
+## Core Surfaces
 
-No duplicate business logic was added in frontend JavaScript.
+- API: `POST /api/agentic-demo`
+- UI: Agentic Demo panel in `web/index.html`
+- Smoke script: `bash scripts/test_agentic.sh`
 
-## Request Example
-
-```json
-{
-  "prompts": [
-    "review MCP tool",
-    "summarize command graph",
-    "inspect tool pool"
-  ],
-  "route_limit": 5
-}
-```
-
-## Response Shape
-
-```json
-{
-  "worker_count": 3,
-  "total_duration_ms": 123,
-  "workers": [
-    {
-      "agent_id": "agent-1",
-      "role": "worker-1",
-      "prompt": "review MCP tool",
-      "matched_commands": ["..."],
-      "matched_tools": ["..."],
-      "output": "Prompt: ...",
-      "stop_reason": "completed",
-      "duration_ms": 41
-    }
-  ],
-  "orchestrator_summary": "Main orchestrator merged parallel worker outputs: ..."
-}
-```
-
-## Limits
-
-- Demonstration orchestration only; this is not a full autonomous multi-agent runtime.
-- Workers execute independent tasks in parallel; no iterative inter-agent message passing loop is implemented.
-
-## Validation
-
-- `tests/test_agentic_demo.py`
-- `tests/test_web_app.py::test_agentic_demo_endpoint`
-
-Targeted test command:
+## Quick Test
 
 ```bash
-python -m unittest tests.test_agentic_demo tests.test_web_app -v
+RUN_TESTS=1 bash scripts/test_agentic.sh
 ```
 
-Dependency note:
-- `httpx` is required for `fastapi.testclient`-based tests.
-- Install with: `python -m pip install httpx`
+## Full Docs
 
-Smoke script (Git Bash):
-
-```bash
-bash scripts/test_agentic.sh
-```
-
-Optional custom port:
-
-```bash
-PORT=8020 bash scripts/test_agentic.sh
-```
+- `docs/agentic/what-is-agentic.md`
+- `docs/agentic/implementation-details.md`
+- `docs/agentic/test-instructions-gitbash.md`
+- `docs/agentic/test-expected-results.md`
+- `docs/agentic/result-interpretation.md`
+- `docs/agentic/capability-and-limitations.md`
+- `docs/agentic/faq-troubleshooting.md`

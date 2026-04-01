@@ -18,6 +18,8 @@ This documentation set is designed for two goals:
 - [CLI Reference](./cli-reference.md)
 - [API Reference](./api-reference.md)
 - [Web App and UI](./web-app.md)
+- [Agentic Demo](./agentic-demo.md)
+- [Agentic Handbook](./agentic/README.md)
 - [Testing and Quality](./testing-and-quality.md)
 
 ## Operations and Contribution
