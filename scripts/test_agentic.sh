@@ -4,6 +4,7 @@ set -euo pipefail
 HOST="${HOST:-127.0.0.1}"
 PORT="${PORT:-8010}"
 BASE_URL="http://${HOST}:${PORT}"
+RUN_TESTS="${RUN_TESTS:-0}"
 
 if ! command -v python >/dev/null 2>&1; then
   echo "[FAIL] python not found in PATH"
@@ -13,6 +14,22 @@ fi
 if ! command -v curl >/dev/null 2>&1; then
   echo "[FAIL] curl not found in PATH"
   exit 1
+fi
+
+if ! python -c "import fastapi,uvicorn" >/dev/null 2>&1; then
+  echo "[FAIL] missing dependencies for web runtime"
+  echo "       install with: python -m pip install fastapi uvicorn"
+  exit 1
+fi
+
+if [[ "$RUN_TESTS" == "1" ]]; then
+  if ! python -c "import httpx" >/dev/null 2>&1; then
+    echo "[FAIL] missing dependency for API tests: httpx"
+    echo "       install with: python -m pip install httpx"
+    exit 1
+  fi
+  echo "[INFO] Running targeted agentic tests"
+  python -m unittest tests.test_agentic_demo tests.test_web_app -v
 fi
 
 echo "[INFO] Starting uvicorn on ${BASE_URL}"

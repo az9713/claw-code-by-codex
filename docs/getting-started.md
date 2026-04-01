@@ -6,12 +6,29 @@ Last updated: 2026-04-01
 
 - Python 3.11+ recommended.
 - `pip` available in your environment.
-- Optional for web mode: `fastapi`, `uvicorn`.
+- For web/API runtime: `fastapi`, `uvicorn`.
+- For API tests (`fastapi.testclient`): `httpx`.
 
 If needed:
 
 ```bash
-python -m pip install fastapi uvicorn
+python -m pip install fastapi uvicorn httpx
+```
+
+## Git Bash + Virtual Environment (Windows)
+
+```bash
+cd /c/Users/<your-user>/Downloads/claw-code-by-codex
+python -m venv .venv
+source .venv/Scripts/activate
+python -m pip install --upgrade pip
+python -m pip install fastapi uvicorn httpx
+```
+
+Confirm venv Python:
+
+```bash
+which python
 ```
 
 ## 5-Minute Quickstart (CLI)

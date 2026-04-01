@@ -80,6 +80,16 @@ No duplicate business logic was added in frontend JavaScript.
 - `tests/test_agentic_demo.py`
 - `tests/test_web_app.py::test_agentic_demo_endpoint`
 
+Targeted test command:
+
+```bash
+python -m unittest tests.test_agentic_demo tests.test_web_app -v
+```
+
+Dependency note:
+- `httpx` is required for `fastapi.testclient`-based tests.
+- Install with: `python -m pip install httpx`
+
 Smoke script (Git Bash):
 
 ```bash
