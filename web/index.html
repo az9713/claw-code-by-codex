@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claw Port Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <header class="hero">
+      <p class="chip">Minimal Claude Code Clone</p>
+      <h1>Claw Port Studio</h1>
+      <p class="subtitle">
+        A live dashboard powered directly by the Python porting runtime. No re-implemented business logic in the UI.
+      </p>
+      <div class="hero-stats">
+        <div>
+          <span>Python Files</span>
+          <strong id="python-files">-</strong>
+        </div>
+        <div>
+          <span>Commands</span>
+          <strong id="command-count">-</strong>
+        </div>
+        <div>
+          <span>Tools</span>
+          <strong id="tool-count">-</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel route-panel">
+        <h2>Prompt Router</h2>
+        <p>Discover which mirrored command/tool modules match a prompt.</p>
+        <form id="route-form">
+          <textarea id="route-prompt" rows="3" placeholder="Try: review MCP tool"></textarea>
+          <div class="inline-controls">
+            <label>Limit <input id="route-limit" type="number" min="1" max="50" value="5" /></label>
+            <button type="submit">Route Prompt</button>
+          </div>
+        </form>
+        <div id="route-results" class="results"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Commands</h2>
+        <div class="inline-controls">
+          <input id="command-query" type="text" placeholder="Search commands..." />
+          <button id="refresh-commands" type="button">Refresh</button>
+        </div>
+        <ul id="commands-list" class="list"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>Tools</h2>
+        <div class="inline-controls">
+          <input id="tool-query" type="text" placeholder="Search tools..." />
+          <button id="refresh-tools" type="button">Refresh</button>
+        </div>
+        <ul id="tools-list" class="list"></ul>
+      </section>
+
+      <section class="panel summary-panel">
+        <h2>Runtime Summary</h2>
+        <pre id="summary-output"></pre>
+      </section>
+    </main>
+
+    <footer>
+      <span>Served by FastAPI</span>
+      <span>Endpoints: /api/summary /api/manifest /api/commands /api/tools /api/route</span>
+    </footer>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
+
