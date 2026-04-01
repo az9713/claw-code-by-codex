@@ -198,14 +198,14 @@ See the chart at the top of this README.
 
 A lightweight web layer is available for interactive exploration of the Python porting runtime.
 
-![Claw Port Studio frontend](docs/frontend.jpg)
+<video src="docs/demo_agents_github.mp4" controls width="100%"></video>
 
-The screenshot above was created from the live local app after launching `src.web_app:app` with Uvicorn and rendering the static frontend in `web/` against the FastAPI endpoints (`/api/summary`, `/api/manifest`, `/api/commands`, `/api/tools`, `/api/route`).
+If your renderer does not show inline video, open it directly: [demo_agents_github.mp4](docs/demo_agents_github.mp4)
 
 Agentic application demo:
 - Use the **Agentic Demo** panel in the web UI to run multiple worker prompts in parallel.
 - Backend endpoint: `POST /api/agentic-demo`.
-- Demo video placeholder URL: `https://github.com/user-attachments/assets/19e2553d-d286-4a8a-bac6-d620fc1911f9`
+- Demo video URL: `https://github.com/user-attachments/assets/19e2553d-d286-4a8a-bac6-d620fc1911f9`
 
 Run:
 
