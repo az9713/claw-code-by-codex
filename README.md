@@ -198,7 +198,10 @@ See the chart at the top of this README.
 
 A lightweight web layer is available for interactive exploration of the Python porting runtime.
 
-<video src="docs/demo_agents_github.mp4" controls width="100%"></video>
+<video controls preload="metadata" width="100%">
+  <source src="docs/demo_agents_github.mp4" type="video/mp4">
+  Your browser or renderer does not support inline video playback.
+</video>
 
 If your renderer does not show inline video, open it directly: [demo_agents_github.mp4](docs/demo_agents_github.mp4)
 
