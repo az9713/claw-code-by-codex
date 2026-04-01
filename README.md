@@ -1,7 +1,10 @@
-# Rewriting Project Claw Code
+﻿# Rewriting Project Claw Code
+
+> [!IMPORTANT]
+> **This repository is a clone-derived variant of the original [instructkr/claw-code](https://github.com/instructkr/claw-code), enhanced with expanded documentation and code experimentation.**
 
 <p align="center">
-  <strong>⭐ The fastest repo in history to surpass 50K stars, reaching the milestone in just 2 hours after publication ⭐</strong>
+  <strong>â­ The fastest repo in history to surpass 50K stars, reaching the milestone in just 2 hours after publication â­</strong>
 </p>
 
 <p align="center">
@@ -27,7 +30,7 @@
 </p>
 
 > [!IMPORTANT]
-> **Rust port is now in progress** on the [`dev/rust`](https://github.com/instructkr/claw-code/tree/dev/rust) branch and is expected to be merged into main today. The Rust implementation aims to deliver a faster, memory-safe harness runtime. Stay tuned — this will be the definitive version of the project.
+> **Rust port is now in progress** on the [`dev/rust`](https://github.com/instructkr/claw-code/tree/dev/rust) branch and is expected to be merged into main today. The Rust implementation aims to deliver a faster, memory-safe harness runtime. Stay tuned â€” this will be the definitive version of the project.
 
 > If you find this work useful, consider [sponsoring @instructkr on GitHub](https://github.com/sponsors/instructkr) to support continued open-source harness engineering research.
 
@@ -35,11 +38,11 @@
 
 ## Backstory
 
-At 4 AM on March 31, 2026, I woke up to my phone blowing up with notifications. The Claude Code source had been exposed, and the entire dev community was in a frenzy. My girlfriend in Korea was genuinely worried I might face legal action from Anthropic just for having the code on my machine — so I did what any engineer would do under pressure: I sat down, ported the core features to Python from scratch, and pushed it before the sun came up.
+At 4 AM on March 31, 2026, I woke up to my phone blowing up with notifications. The Claude Code source had been exposed, and the entire dev community was in a frenzy. My girlfriend in Korea was genuinely worried I might face legal action from Anthropic just for having the code on my machine â€” so I did what any engineer would do under pressure: I sat down, ported the core features to Python from scratch, and pushed it before the sun came up.
 
-The whole thing was orchestrated end-to-end using [oh-my-codex (OmX)](https://github.com/Yeachan-Heo/oh-my-codex) by [@bellman_ych](https://x.com/bellman_ych) — a workflow layer built on top of OpenAI's Codex ([@OpenAIDevs](https://x.com/OpenAIDevs)). I used `$team` mode for parallel code review and `$ralph` mode for persistent execution loops with architect-level verification. The entire porting session — from reading the original harness structure to producing a working Python tree with tests — was driven through OmX orchestration.
+The whole thing was orchestrated end-to-end using [oh-my-codex (OmX)](https://github.com/Yeachan-Heo/oh-my-codex) by [@bellman_ych](https://x.com/bellman_ych) â€” a workflow layer built on top of OpenAI's Codex ([@OpenAIDevs](https://x.com/OpenAIDevs)). I used `$team` mode for parallel code review and `$ralph` mode for persistent execution loops with architect-level verification. The entire porting session â€” from reading the original harness structure to producing a working Python tree with tests â€” was driven through OmX orchestration.
 
-The result is a clean-room Python rewrite that captures the architectural patterns of Claude Code's agent harness without copying any proprietary source. I'm now actively collaborating with [@bellman_ych](https://x.com/bellman_ych) — the creator of OmX himself — to push this further. The basic Python foundation is already in place and functional, but we're just getting started. **Stay tuned — a much more capable version is on the way.**
+The result is a clean-room Python rewrite that captures the architectural patterns of Claude Code's agent harness without copying any proprietary source. I'm now actively collaborating with [@bellman_ych](https://x.com/bellman_ych) â€” the creator of OmX himself â€” to push this further. The basic Python foundation is already in place and functional, but we're just getting started. **Stay tuned â€” a much more capable version is on the way.**
 
 https://github.com/instructkr/claw-code
 
@@ -47,7 +50,7 @@ https://github.com/instructkr/claw-code
 
 ## The Creators Featured in Wall Street Journal For Avid Claude Code Fans
 
-I've been deeply interested in **harness engineering** — studying how agent systems wire tools, orchestrate tasks, and manage runtime context. This isn't a sudden thing. The Wall Street Journal featured my work earlier this month, documenting how I've been one of the most active power users exploring these systems:
+I've been deeply interested in **harness engineering** â€” studying how agent systems wire tools, orchestrate tasks, and manage runtime context. This isn't a sudden thing. The Wall Street Journal featured my work earlier this month, documenting how I've been one of the most active power users exploring these systems:
 
 > AI startup worker Sigrid Jin, who attended the Seoul dinner, single-handedly used 25 billion of Claude Code tokens last year. At the time, usage limits were looser, allowing early enthusiasts to reach tens of billions of tokens at a very low cost.
 >
@@ -57,7 +60,7 @@ I've been deeply interested in **harness engineering** — studying how agent sy
 >
 > "It was basically like a sharing party," Jin said. "There were lawyers, there were doctors, there were dentists. They did not have software engineering backgrounds."
 >
-> — *The Wall Street Journal*, March 21, 2026, [*"The Trillion Dollar Race to Automate Our Entire Lives"*](https://lnkd.in/gs9td3qd)
+> â€” *The Wall Street Journal*, March 21, 2026, [*"The Trillion Dollar Race to Automate Our Entire Lives"*](https://lnkd.in/gs9td3qd)
 
 ![WSJ Feature](assets/wsj-feature.png)
 
@@ -75,7 +78,7 @@ The current Python workspace is not yet a complete one-to-one replacement for th
 
 ## Why this rewrite exists
 
-I originally studied the exposed codebase to understand its harness, tool wiring, and agent workflow. After spending more time with the legal and ethical questions—and after reading the essay linked below—I did not want the exposed snapshot itself to remain the main tracked source tree.
+I originally studied the exposed codebase to understand its harness, tool wiring, and agent workflow. After spending more time with the legal and ethical questionsâ€”and after reading the essay linked belowâ€”I did not want the exposed snapshot itself to remain the main tracked source tree.
 
 This repository now focuses on Python porting work instead.
 
@@ -83,31 +86,31 @@ This repository now focuses on Python porting work instead.
 
 ```text
 .
-├── src/                                # Python porting workspace
-│   ├── __init__.py
-│   ├── commands.py
-│   ├── main.py
-│   ├── models.py
-│   ├── port_manifest.py
-│   ├── query_engine.py
-│   ├── task.py
-│   └── tools.py
-├── tests/                              # Python verification
-├── assets/omx/                         # OmX workflow screenshots
-├── 2026-03-09-is-legal-the-same-as-legitimate-ai-reimplementation-and-the-erosion-of-copyleft.md
-└── README.md
+â”œâ”€â”€ src/                                # Python porting workspace
+â”‚   â”œâ”€â”€ __init__.py
+â”‚   â”œâ”€â”€ commands.py
+â”‚   â”œâ”€â”€ main.py
+â”‚   â”œâ”€â”€ models.py
+â”‚   â”œâ”€â”€ port_manifest.py
+â”‚   â”œâ”€â”€ query_engine.py
+â”‚   â”œâ”€â”€ task.py
+â”‚   â””â”€â”€ tools.py
+â”œâ”€â”€ tests/                              # Python verification
+â”œâ”€â”€ assets/omx/                         # OmX workflow screenshots
+â”œâ”€â”€ 2026-03-09-is-legal-the-same-as-legitimate-ai-reimplementation-and-the-erosion-of-copyleft.md
+â””â”€â”€ README.md
 ```
 
 ## Python Workspace Overview
 
 The new Python `src/` tree currently provides:
 
-- **`port_manifest.py`** — summarizes the current Python workspace structure
-- **`models.py`** — dataclasses for subsystems, modules, and backlog state
-- **`commands.py`** — Python-side command port metadata
-- **`tools.py`** — Python-side tool port metadata
-- **`query_engine.py`** — renders a Python porting summary from the active workspace
-- **`main.py`** — a CLI entrypoint for manifest and summary output
+- **`port_manifest.py`** â€” summarizes the current Python workspace structure
+- **`models.py`** â€” dataclasses for subsystems, modules, and backlog state
+- **`commands.py`** â€” Python-side command port metadata
+- **`tools.py`** â€” Python-side tool port metadata
+- **`query_engine.py`** â€” renders a Python porting summary from the active workspace
+- **`main.py`** â€” a CLI entrypoint for manifest and summary output
 
 ## Quickstart
 
@@ -183,7 +186,7 @@ The restructuring and documentation work on this repository was AI-assisted and 
   <a href="https://instruct.kr/"><img src="assets/instructkr.png" alt="instructkr" width="400" /></a>
 </p>
 
-Join the [**instructkr Discord**](https://instruct.kr/) — the best Korean language model community. Come chat about LLMs, harness engineering, agent workflows, and everything in between.
+Join the [**instructkr Discord**](https://instruct.kr/) â€” the best Korean language model community. Come chat about LLMs, harness engineering, agent workflows, and everything in between.
 
 [![Discord](https://img.shields.io/badge/Join%20Discord-instruct.kr-5865F2?logo=discord&style=for-the-badge)](https://instruct.kr/)
 
@@ -214,3 +217,4 @@ Implementation details and architecture rationale:
 
 - This repository does **not** claim ownership of the original Claude Code source material.
 - This repository is **not affiliated with, endorsed by, or maintained by Anthropic**.
+
