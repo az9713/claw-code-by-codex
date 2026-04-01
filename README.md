@@ -205,7 +205,7 @@ The screenshot above was created from the live local app after launching `src.we
 Agentic application demo:
 - Use the **Agentic Demo** panel in the web UI to run multiple worker prompts in parallel.
 - Backend endpoint: `POST /api/agentic-demo`.
-- Demo video placeholder URL: `https://example.com/TODO-claw-code-by-codex-agentic-demo-video`
+- Demo video placeholder URL: `https://github.com/user-attachments/assets/19e2553d-d286-4a8a-bac6-d620fc1911f9`
 
 Run:
 
@@ -230,4 +230,5 @@ Implementation details and architecture rationale:
 
 - This repository does **not** claim ownership of the original Claude Code source material.
 - This repository is **not affiliated with, endorsed by, or maintained by Anthropic**.
+
 

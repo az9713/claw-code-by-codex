@@ -55,4 +55,5 @@ Local file:
 - `docs/demo_agents_github.mp4` (compressed, GitHub-friendly)
 
 Placeholder URL (to replace later):
-- `https://example.com/TODO-claw-code-by-codex-agentic-demo-video`
+- `https://github.com/user-attachments/assets/19e2553d-d286-4a8a-bac6-d620fc1911f9`
+

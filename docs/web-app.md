@@ -70,4 +70,5 @@ python -m uvicorn src.web_app:app --host 127.0.0.1 --port 8000 --reload
 ## Demo Video
 
 - Local compressed (GitHub-friendly): `docs/demo_agents_github.mp4`
-- Placeholder URL (replace later): `https://example.com/TODO-claw-code-by-codex-agentic-demo-video`
+- Placeholder URL (replace later): `https://github.com/user-attachments/assets/19e2553d-d286-4a8a-bac6-d620fc1911f9`
+

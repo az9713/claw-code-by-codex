@@ -1,4 +1,4 @@
-# Agentic Demo (Index)
+﻿# Agentic Demo (Index)
 
 Last updated: 2026-04-01
 
@@ -15,7 +15,7 @@ This page is the short entrypoint. For complete beginner-first documentation, us
 ## Demo Video (Placeholder URL)
 
 - Placeholder URL (replace after issue-tracked upload):  
-  `https://example.com/TODO-claw-code-by-codex-agentic-demo-video`
+  `https://github.com/user-attachments/assets/19e2553d-d286-4a8a-bac6-d620fc1911f9`
 
 Local compressed file prepared for GitHub uploads:
 - `docs/demo_agents_github.mp4`
@@ -41,3 +41,4 @@ RUN_TESTS=1 bash scripts/test_agentic.sh
 - `docs/agentic/result-interpretation.md`
 - `docs/agentic/capability-and-limitations.md`
 - `docs/agentic/faq-troubleshooting.md`
+
